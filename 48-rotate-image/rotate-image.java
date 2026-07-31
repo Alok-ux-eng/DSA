@@ -3,28 +3,29 @@ class Solution {
 
         int n = matrix.length;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
+        for (int layer = 0; layer < n / 2; layer++) {
 
-                int temp = matrix[i][j];
-                matrix[i][j] = matrix[j][i];
-                matrix[j][i] = temp;
-            }
-        }
+            int first = layer;
+            int last = n - 1 - layer;
 
-        for (int[] row : matrix) {
+            for (int i = first; i < last; i++) {
 
-            int left = 0;
-            int right = row.length - 1;
+                int offset = i - first;
 
-            while (left < right) {
+                // Save top
+                int top = matrix[first][i];
 
-                int temp = row[left];
-                row[left] = row[right];
-                row[right] = temp;
+                // Left -> Top
+                matrix[first][i] = matrix[last - offset][first];
 
-                left++;
-                right--;
+                // Bottom -> Left
+                matrix[last - offset][first] = matrix[last][last - offset];
+
+                // Right -> Bottom
+                matrix[last][last - offset] = matrix[i][last];
+
+                // Top -> Right
+                matrix[i][last] = top;
             }
         }
     }
