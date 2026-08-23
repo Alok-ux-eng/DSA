@@ -6,6 +6,7 @@ class Solution {
         }
         if(i>n){
             return;
+            
         }
         
             list.add(i);
