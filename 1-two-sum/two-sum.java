@@ -4,11 +4,11 @@ class Solution {
 
         for (int  i= 0; i < nums.length; i++) {
 
-            int complement = target - nums[i];
+            int need = target - nums[i];
 
-            if(mp.containsKey(complement)) {
+            if(mp.containsKey(need)) {
 
-                return new int[] {mp.get(complement),i};
+                return new int[] {mp.get(need),i};
             }
             mp.put(nums[i] , i);
 
