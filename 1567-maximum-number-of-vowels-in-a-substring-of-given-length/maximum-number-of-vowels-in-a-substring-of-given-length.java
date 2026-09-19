@@ -33,10 +33,8 @@ class Solution {
 
                 maxVowels = Math.max(vowels, maxVowels);
 
-                // Move right
                 e++;
 
-                // Remove left character
                 if (isVowel(s.charAt(st)) == true) {
                     vowels--;
                 }
