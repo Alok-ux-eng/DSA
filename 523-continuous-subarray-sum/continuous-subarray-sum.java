@@ -7,7 +7,7 @@ class Solution {
 
         int right =0;
         int sum = 0;
-        while( right < nums.length) {
+        while(right < nums.length) {
         sum+=nums[right];
         int ans = sum%k;
         if(map.containsKey(ans)) {
